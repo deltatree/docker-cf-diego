@@ -15,4 +15,5 @@ RUN cd /usr/local/src && wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.
 RUN export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/vcap/bosh/bin
 RUN gem install bundler
 RUN wget -O /usr/local/bin/spiff https://github.com/cloudfoundry-incubator/spiff/releases/download/v1.0.7/spiff_linux_amd64 && chmod 755 /usr/local/bin/spiff
+RUN cd /root/workspace/cf-release && find ./templates/ -type f -exec sed -i 's/bosh-lite.com/opencloud.deltatree.de/g' {} \;
 RUN cd /root/workspace/cf-release && bundle update && ./scripts/generate-bosh-lite-dev-manifest && ./scripts/deploy-dev-release-to-bosh-lite
