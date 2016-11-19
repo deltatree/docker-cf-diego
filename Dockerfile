@@ -13,4 +13,4 @@ RUN cd /root/workspace/cf-release && ./scripts/update
 RUN cd /usr/local/src && wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.2.tar.gz && tar -xzf ruby-2.3.2.tar.gz && cd ruby-2.3.2 && ./configure && make install
 RUN export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/vcap/bosh/bin
 RUN gem install bundler
-#RUN cd /root/workspace/cf-release && ./scripts/generate-bosh-lite-dev-manifest && ./scripts/deploy-dev-release-to-bosh-lite
+RUN cd /root/workspace/cf-release && bundle update && ./scripts/generate-bosh-lite-dev-manifest && ./scripts/deploy-dev-release-to-bosh-lite
